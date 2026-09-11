@@ -11,5 +11,6 @@
         <label for="valor1">Informe o valor do Produto:</label>
         <br>
         <input type="number" id="valor1" name="valor1"><br>
+        <button type="submit">Enviar</button>
 </body>
 </html>
