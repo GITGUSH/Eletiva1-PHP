@@ -1,0 +1,35 @@
+CREATE DATABASE IF NOT EXISTS locadora
+  DEFAULT CHARACTER SET utf8mb4
+  COLLATE utf8mb4_general_ci;
+
+USE locadora;
+
+CREATE TABLE veiculos (
+  id INT NOT NULL AUTO_INCREMENT,
+  placa VARCHAR(8) NOT NULL,
+  marca VARCHAR(50) NOT NULL,
+  modelo VARCHAR(80) NOT NULL,
+  ano SMALLINT NOT NULL,
+  cor VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY uk_placa (placa)
+) ENGINE=InnoDB;
+
+CREATE TABLE clientes (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(150) NOT NULL,
+  cpf VARCHAR(14) NOT NULL,
+  telefone VARCHAR(20) NOT NULL,
+  email VARCHAR(120) NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY uk_cpf (cpf)
+) ENGINE=InnoDB;
+
+CREATE TABLE contratos (
+  id INT NOT NULL AUTO_INCREMENT,
+  descricao VARCHAR(255) NOT NULL,
+  tipo ENUM('diaria','semanal','mensal') NOT NULL,
+  valor DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
